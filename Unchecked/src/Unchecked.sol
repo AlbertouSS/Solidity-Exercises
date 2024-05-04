@@ -7,8 +7,9 @@ contract Unchecked {
         1. The `getNumber` function reverts when called, you need to make the function stop
            reverting and return underflow value.
     */
-
     function getNumber(uint256 x) public pure returns (uint256) {
+        unchecked {
         return x - 100;
+        }
     }
 }
