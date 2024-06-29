@@ -15,15 +15,15 @@ contract TripleNestedMappingTest is Test {
 
     function testTripleNestedMapping() public {
         tripleNestedMapping.setLogin("John", 123456, 123);
-        bool isLoggedIn = tripleNestedMapping.isLoggedIn("John", 123456, 123);
+        bool isLoggedIn = tripleNestedMapping.isLogged("John", 123456, 123);
         assertEq(isLoggedIn, true, "expected isLoggedIn to be true");
 
         tripleNestedMapping.setLogin("Joe", 224422, 102);
-        isLoggedIn = tripleNestedMapping.isLoggedIn("Joe", 224422, 102);
+        isLoggedIn = tripleNestedMapping.isLogged("Joe", 224422, 102);
         assertEq(isLoggedIn, true, "expected isLoggedIn to be true");
 
         tripleNestedMapping.setLogin("Walter", 98765, 666);
-        isLoggedIn = tripleNestedMapping.isLoggedIn("Walter", 98765, 666);
+        isLoggedIn = tripleNestedMapping.isLogged("Walter", 98765, 666);
         assertEq(isLoggedIn, true, "expected isLoggedIn to be true");
     }
 }
