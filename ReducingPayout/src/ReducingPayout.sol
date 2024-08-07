@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity ^0.8.13;
+import "forge-std/console.sol";
 
 contract ReducingPayout {
     /*
@@ -19,5 +20,9 @@ contract ReducingPayout {
 
     function withdraw() public {
         // your code here
+        uint256 secondsElapsed = block.timestamp -  depositedTime;
+        uint256 availableBalance = 1 ether - ((secondsElapsed * 0.0011574 ether) / 100);
+        if (secondsElapsed >= 86400){availableBalance = 0;}
+        msg.sender.call{value:availableBalance}("");
     }
 }

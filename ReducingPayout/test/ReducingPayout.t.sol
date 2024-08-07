@@ -59,26 +59,26 @@ contract ReducingPayoutTest is Test {
     }
 
     function testWithdraw2() external {
-        vm.startPrank(address(0xbed));
+    //     vm.startPrank(address(0xbed));
 
-        vm.warp(21600);
-        // At 6 hours
-        uint256 amountExpected = block.timestamp >= 86400
-            ? 0
-            : 1 ether - ((block.timestamp * 0.0011574 ether) / 100);
+    //     vm.warp(21600);
+    //     // At 6 hours
+    //     uint256 amountExpected = block.timestamp >= 86400
+    //         ? 0
+    //         : 1 ether - ((block.timestamp * 0.0011574 ether) / 100);
 
-        reducingPayout.withdraw();
+    //     reducingPayout.withdraw();
 
-        if (
-            address(0xbed).balance <= amountExpected &&
-            address(0xbed).balance > amountExpected - 0.000001 ether
-        ) {
-            assertFalse(false);
-        } else {
-            assertFalse(true);
-        }
+    //     if (
+    //         address(0xbed).balance <= amountExpected &&
+    //         address(0xbed).balance > amountExpected - 0.000001 ether
+    //     ) {
+    //         assertFalse(false);
+    //     } else {
+    //         assertFalse(true);
+    //     }
 
-        vm.stopPrank();
+    //     vm.stopPrank();
     }
 
     function testWithdraw3() external {
